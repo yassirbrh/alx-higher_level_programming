@@ -12,7 +12,7 @@ void print_python_list_info(PyObject *p)
 	printf("[*] Allocated = %d\n", (int)pl->allocated);
 	for (i = 0; i < size; i++)
 	{
-		type = Py_TYPE(PyList_GetItem(p, (Py_ssize_t)i))->tp_name;
+		type = Py_TYPE(p->ob_item[i])->tp_name;
 		printf("Element %d: %s\n", i, type);
 	}
 }
