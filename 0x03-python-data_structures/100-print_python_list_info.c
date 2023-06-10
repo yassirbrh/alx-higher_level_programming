@@ -2,15 +2,7 @@
 #include <Python.h>
 #include <object.h>
 #include <listobject.h>
-/**
- * print_python_list_info - Function
- *
- * Description: Prints same basic info about Python lists.
- *
- * @p: Pointer to the Python list object.
- *
- * Return: No return because it's a void function.
- */
+
 void print_python_list_info(PyObject *p)
 {
 	PyListObject *pl = (PyListObject *)p;
