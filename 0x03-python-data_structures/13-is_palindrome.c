@@ -50,6 +50,7 @@ int is_palindrome(listint_t **head)
 	{
 		if (current->n != new_current->n)
 		{
+			new_current = NULL;
 			free_listint(new_head);
 			return (0);
 		}
