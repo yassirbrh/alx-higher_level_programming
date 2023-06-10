@@ -9,7 +9,7 @@ void print_python_list_info(PyObject *p)
 	int i;
 	const char *type;
 
-	printf("[*] Size of the python List = %d\n", size);
+	printf("[*] Size of the python List = %li\n", size);
 	printf("[*] Allocated = %d\n", (int)pl->allocated);
 	for (i = 0; i < size; i++)
 	{
