@@ -9,7 +9,7 @@
  * @p: Pointer to the Python list object.
  *
  * Return: No return because it's a void function.
- */²
+ */
 void print_python_list_info(PyObject *p)
 {
 	PyListObject *pl = (PyListObject *)p;
