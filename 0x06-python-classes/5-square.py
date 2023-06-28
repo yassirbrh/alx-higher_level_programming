@@ -34,7 +34,7 @@ class Square:
         elif value < 0:
             raise ValueError("size must be >= 0")
         self.__size = value
-    
+
     def my_print(self):
         """ Initialisation of the function my_print """
         if self.__size == 0:
@@ -43,18 +43,3 @@ class Square:
             for j in range(self.__size):
                 print("#", end="")
             print("")
-
-my_square = Square(3)
-my_square.my_print()
-
-print("--")
-
-my_square.size = 10
-my_square.my_print()
-
-print("--")
-
-my_square.size = 0
-my_square.my_print()
-
-print("--")
