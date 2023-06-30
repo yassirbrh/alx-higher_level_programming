@@ -47,14 +47,15 @@ class Square:
         """ Initialisation of the function my_print """
         if self.__size == 0:
             print("")
-        for i in range(self.__position[1]):
-            print("")
-        for i in range(self.__size):
-            for j in range(self.__position[0]):
-                print(" ", end="")
-            for j in range(self.__size):
-                print("#", end="")
-            print("")
+        else:
+            for i in range(self.__position[1]):
+                print("")
+            for i in range(self.__size):
+                for j in range(self.__position[0]):
+                    print(" ", end="")
+                for j in range(self.__size):
+                    print("#", end="")
+                print("")
 
     @property
     def position(self):
