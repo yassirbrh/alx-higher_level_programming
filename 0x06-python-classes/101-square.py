@@ -72,7 +72,7 @@ class Square:
         if not isinstance(position[1], int) or position[1] < 0:
             raise TypeError("position must be a tuple of 2 positive integers")
         self.__position = position
-    
+
     def __str__(self):
         """ Making the class instance printable """
         circle = []
@@ -89,11 +89,3 @@ class Square:
                     string += "#"
                 circle.append(string)
         return '\n'.join(circle)
-
-my_square = Square(5, (0, 0))
-print(my_square)
-
-print("--")
-
-my_square = Square(5, (4, 1))
-print(my_square)
