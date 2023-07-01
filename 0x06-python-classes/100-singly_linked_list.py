@@ -13,7 +13,8 @@ class Node:
     def __init__(self, data, next_node=None):
 
         """ Initialisation of the constructor of the Node class """
-
+        if not isinstance(data, int):
+            raise TypeError("data must be an integer")
         self.__data = data
         self.__next_node = next_node
 
