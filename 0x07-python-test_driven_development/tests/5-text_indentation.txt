@@ -1,0 +1,23 @@
+>>> text_indentation = __import__('5-text_indentation').text_indentation
+>>> text_indentation(7)
+Traceback (most recent call last):
+   ...
+TypeError: text must be a string
+>>> text_indentation(None)
+Traceback (most recent call last):
+   ...
+TypeError: text must be a string
+>>> text_indentation("Holberton School:Alx.Software Engineering?")
+Holberton School:
+<BLANKLINE>
+Alx.
+<BLANKLINE>
+Software Engineering?
+<BLANKLINE>
+>>> text_indentation("Hello??ALX")
+Hello?
+<BLANKLINE>
+?
+<BLANKLINE>
+ALX
+
