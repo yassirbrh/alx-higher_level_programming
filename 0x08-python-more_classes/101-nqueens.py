@@ -81,6 +81,7 @@ class nqueens:
     def print_solutions(self):
         return self.solutions
 
+
 if len(sys.argv) != 2:
     print("Usage: nqueens N")
     exit(1)
