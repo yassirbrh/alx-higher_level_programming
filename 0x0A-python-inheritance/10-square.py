@@ -1,9 +1,10 @@
 #!/usr/bin/python3
 
-""" Square - Class """
+""" Import Rectangle  """
 
 Rectangle = __import__("9-rectangle").Rectangle
 
+""" Square - Class """
 
 class Square(Rectangle):
     """ Class Square inherits from class Rectangle """
