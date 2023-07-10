@@ -1,19 +1,13 @@
 #!/usr/bin/python3
-"""
-Import Rectangle
-"""
+""" Import Rectangle """
 
+Rectangle = __import__("9-rectangle").Rectangle
 
-Rectangle = __import__('9-rectangle').Rectangle
-
-
-"""
-Square - Class
-"""
+""" Square - Class """
 
 
 class Square(Rectangle):
-    """ Square - Class """
+    """ Class Square inherits from class Rectangle """
     def __init__(self, size):
         """ Initialisation of the constructor of the class Square """
         self.__size = size
