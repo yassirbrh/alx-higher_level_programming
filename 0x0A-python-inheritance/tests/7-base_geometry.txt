@@ -1,0 +1,34 @@
+>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+>>> bg = BaseGeometry()
+>>> type(bg)
+<class '7-base_geometry.BaseGeometry'>
+>>> print(bg) # doctest: +ELLIPSIS
+<7-base_geometry.BaseGeometry object at ...>
+>>> bg = BaseGeometry()
+>>> bg.area()
+Traceback (most recent call last):
+Exception: area() is not implemented
+>>> bg.integer_validator("invalid number", "number")
+Traceback (most recent call last):
+TypeError: invalid number must be an integer
+>>> bg.integer_validator("invalid tuple", (1,))
+Traceback (most recent call last):
+TypeError: invalid tuple must be an integer
+>>> bg.integer_validator("and another", [3])
+Traceback (most recent call last):
+TypeError: and another must be an integer
+>>> bg.integer_validator("more invalid testing", {3, 4})
+Traceback (most recent call last):
+TypeError: more invalid testing must be an integer
+>>> bg.integer_validator("absolutely every possible invalid", None)
+Traceback (most recent call last):
+TypeError: absolutely every possible invalid must be an integer
+>>> bg.integer_validator("invalid int", -1)
+Traceback (most recent call last):
+ValueError: invalid int must be greater than 0
+>>> bg.integer_validator("invalid int", 0)
+Traceback (most recent call last):
+ValueError: invalid int must be greater than 0
+>>> bg.integer_validator({"a": 1}, (1, 2))
+Traceback (most recent call last):
+TypeError: {'a': 1} must be an integer
