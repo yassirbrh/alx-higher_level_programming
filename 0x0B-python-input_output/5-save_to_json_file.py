@@ -3,9 +3,6 @@
 import json
 
 
-""" save_to_json_file - Function """
-
-
 def save_to_json_file(my_obj, filename):
     """ Initialisation of the function """
     text = json.dumps(my_obj)
