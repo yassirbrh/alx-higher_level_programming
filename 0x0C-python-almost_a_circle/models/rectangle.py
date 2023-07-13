@@ -113,3 +113,12 @@ class Rectangle(Base):
             area - Instance method to calculate the rectangle area
         '''
         return self.__width * self.__height
+
+    def display(self):
+        '''
+            display - Instance method to print the rectangle using #
+        '''
+        for i in range(self.height):
+            for j in range(self.width):
+                print("#", end="")
+            print("")
