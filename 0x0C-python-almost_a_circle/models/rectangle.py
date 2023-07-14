@@ -136,17 +136,30 @@ class Rectangle(Base):
         string += str(self.width) + "/" + str(self.height)
         return string
 
-    def update(self, *args):
+    def update(self, *args, **kwargs):
         '''
             Function to update the object properties
         '''
-        if len(args) >= 1:
-            self.id = args[0]
-        if len(args) >= 2:
-            self.width = args[1]
-        if len(args) >= 3:
-            self.height = args[2]
-        if len(args) >= 4:
-            self.x = args[3]
-        if len(args) >= 5:
-            self.y = args[4]
+        if args is not None and len(args) > 0:
+            if len(args) >= 1:
+                self.id = args[0]
+            if len(args) >= 2:
+                self.width = args[1]
+            if len(args) >= 3:
+                self.height = args[2]
+            if len(args) >= 4:
+                self.x = args[3]
+            if len(args) >= 5:
+                self.y = args[4]
+        else:
+            for kwarg in kwargs:
+                if kwarg == "id":
+                    self.id = kwargs[kwarg]
+                if kwarg == "width":
+                    self.width = kwargs[kwarg]
+                if kwarg == "height":
+                    self.height = kwargs[kwarg]
+                if kwarg == "x":
+                    self.x = kwargs[kwarg]
+                if kwarg == "y":
+                    self.y = kwargs[kwarg]
