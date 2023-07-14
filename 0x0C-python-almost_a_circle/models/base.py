@@ -46,3 +46,12 @@ class Base:
         filename = cls.__name__ + ".json"
         with open(filename, "w") as f:
             f.write(content)
+
+    @staticmethod
+    def from_json_string(json_string):
+        '''
+            from_json_string - Method to extract the list of dicts from json.
+        '''
+        if json_string is None or len(json_string) == 0:
+            return []
+        return json.loads(json_string)
