@@ -67,3 +67,9 @@ class Square(Rectangle):
                     self.x = kwargs[kwarg]
                 if kwarg == "y":
                     self.y = kwargs[kwarg]
+
+    def to_dictionary(self):
+        '''
+            Initialisation of the instance method to_dictionary
+        '''
+        return {"id": self.id, "x": self.x, "size": self.size, "y": self.y}
