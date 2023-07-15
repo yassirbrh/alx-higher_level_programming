@@ -1,8 +1,9 @@
 #!/usr/bin/python3
 '''
-    Import JSON
+    Import JSON and CSV
 '''
 import json
+import csv
 
 '''
     Base - Class
@@ -85,4 +86,52 @@ class Base:
         list_dict = Base.from_json_string(content)
         for dictionary in list_dict:
             inst_list.append(cls.create(**dictionary))
+        return inst_list
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        '''
+            save_to_file_csv - Class method to store instance in CSV file.
+        '''
+        filename = cls.__name__ + ".csv"
+        list_data = []
+        for obj in list_objs:
+            dictionary = obj.to_dictionary()
+            data = []
+            data.append(int(dictionary["id"]))
+            if cls.__name__ == "Rectangle":
+                data.append(int(dictionary["width"]))
+                data.append(int(dictionary["height"]))
+            elif cls.__name__ == "Square":
+                data.append(int(dictionary["size"]))
+            data.append(int(dictionary["x"]))
+            data.append(int(dictionary["y"]))
+            list_data.append(data)
+        with open(filename, "w") as f:
+            writer = csv.writer(f)
+            for row in list_data:
+                writer.writerow(row)
+
+    @classmethod
+    def load_from_file_csv(cls):
+        '''
+            load_from_file_csv - Class method to load the instances from csv
+        '''
+        filename = cls.__name__ + ".csv"
+        inst_list = []
+        list_dict = []
+        try:
+            with open(filename, "r") as f:
+                if cls.__name__ == "Square":
+                    fields = ["id", "size", "x", "y"]
+                else:
+                    fields = ["id", "width", "height", "x", "y"]
+                list_dict = list(csv.DictReader(f, fieldnames=fields))
+        except Exception:
+            return inst_list
+        for dictionary in list_dict:
+            for elem in dictionary:
+                dictionary[elem] = int(dictionary[elem])
+            obj = cls.create(**dictionary)
+            inst_list.append(obj)
         return inst_list
