@@ -1,9 +1,10 @@
 #!/usr/bin/python3
 '''
-    Import JSON and CSV
+    Importing modules
 '''
 import json
 import csv
+import turtle
 
 '''
     Base - Class
@@ -135,3 +136,38 @@ class Base:
             obj = cls.create(**dictionary)
             inst_list.append(obj)
         return inst_list
+
+    @staticmethod
+    def draw(list_rectangles, list_squares):
+        '''
+            draw - Static method to draw the shapes passed by the lists
+        '''
+        screen = turtle.Turtle()
+        screen.screen.bgcolor("white")
+        screen.pensize(3)
+        screen.shape("turtle")
+
+        screen.color("#bbaaff")
+        for rect in list_rectangles:
+            screen.showturtle()
+            screen.up()
+            screen.goto(rect.x, rect.y)
+            screen.down()
+            for i in range(2):
+                screen.forward(rect.width)
+                screen.left(90)
+                screen.forward(rect.height)
+                screen.left(90)
+            screen.hideturtle()
+
+        screen.color("#bbbb00")
+        for sq in list_squares:
+            screen.showturtle()
+            screen.up()
+            screen.goto(sq.x, sq.y)
+            screen.down()
+            for i in range(4):
+                screen.forward(sq.size)
+                screen.left(90)
+            screen.hideturtle()
+        turtle.exitonclick()
