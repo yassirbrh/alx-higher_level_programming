@@ -98,22 +98,25 @@ class Base:
         '''
         filename = cls.__name__ + ".csv"
         list_data = []
-        for obj in list_objs:
-            dictionary = obj.to_dictionary()
-            data = []
-            data.append(int(dictionary["id"]))
-            if cls.__name__ == "Rectangle":
-                data.append(int(dictionary["width"]))
-                data.append(int(dictionary["height"]))
-            elif cls.__name__ == "Square":
-                data.append(int(dictionary["size"]))
-            data.append(int(dictionary["x"]))
-            data.append(int(dictionary["y"]))
-            list_data.append(data)
         with open(filename, "w") as f:
-            writer = csv.writer(f)
-            for row in list_data:
-                writer.writerow(row)
+            if list_objs is not None and list_objs != []:
+                for obj in list_objs:
+                    dictionary = obj.to_dictionary()
+                    data = []
+                    data.append(int(dictionary["id"]))
+                    if cls.__name__ == "Rectangle":
+                        data.append(int(dictionary["width"]))
+                        data.append(int(dictionary["height"]))
+                    elif cls.__name__ == "Square":
+                        data.append(int(dictionary["size"]))
+                    data.append(int(dictionary["x"]))
+                    data.append(int(dictionary["y"]))
+                    list_data.append(data)
+                writer = csv.writer(f)
+                for row in list_data:
+                    writer.writerow(row)
+            else:
+                f.write("[]")
 
     @classmethod
     def load_from_file_csv(cls):
