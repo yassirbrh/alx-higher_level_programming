@@ -47,7 +47,10 @@ class Base:
         content = Base.to_json_string(list_dict)
         filename = cls.__name__ + ".json"
         with open(filename, "w") as f:
-            f.write(content)
+            if list_objs is None:
+                f.write("[]")
+            else:
+                f.write(content)
 
     @staticmethod
     def from_json_string(json_string):
