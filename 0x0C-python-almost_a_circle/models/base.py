@@ -42,13 +42,13 @@ class Base:
             save_to_file - Class method to save the json format in a file
         '''
         list_dict = []
-        for obj in list_objs:
-            list_dict.append(obj.to_dictionary())
         filename = cls.__name__ + ".json"
         with open(filename, "w") as f:
             if list_objs is None:
                 f.write("[]")
             else:
+                for obj in list_objs:
+                    list_dict.append(obj.to_dictionary())
                 f.write(Base.to_json_string(list_dict))
 
     @staticmethod
