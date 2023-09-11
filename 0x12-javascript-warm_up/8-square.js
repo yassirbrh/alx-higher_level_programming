@@ -1,7 +1,7 @@
 #!/usr/bin/node
-if (process.argv[2] === undefined) {
+if (isNaN(parseInt(process.argv[2]))) {
   console.log('Missing size');
-} else if (!isNaN(parseInt(process.argv[2]))) {
+} else {
   for (let i = 0; i < parseInt(process.argv[2]); i++) {
     let line = '';
     for (let j = 0; j < parseInt(process.argv[2]); j++) {
