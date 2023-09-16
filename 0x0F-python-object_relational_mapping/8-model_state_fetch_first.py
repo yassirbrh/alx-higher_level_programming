@@ -21,5 +21,5 @@ if __name__ == "__main__":
     if first_row:
         print("{}: {}".format(first_row.id, first_row.name))
     else:
-        print()
+        print("Nothing")
     session.close()
