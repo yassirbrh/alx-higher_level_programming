@@ -18,7 +18,7 @@ if __name__ == "__main__":
     cur = conn.cursor()
     cur.execute(
         """SELECT cities.name FROM cities
-        JOIN states ON states.id = cities.state_id
+        INNER JOIN states ON states.id = cities.state_id
         WHERE states.name LIKE %s ORDER BY cities.id ASC""", (sys.argv[4], ))
     query_rows = cur.fetchall()
     for row in query_rows:
