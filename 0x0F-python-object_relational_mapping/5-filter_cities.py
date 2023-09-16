@@ -19,12 +19,9 @@ if __name__ == "__main__":
     cur.execute(
         """SELECT cities.name FROM cities
         INNER JOIN states ON states.id = cities.state_id
-        WHERE states.name LIKE %s ORDER BY cities.id ASC""", (sys.argv[4], ))
+        WHERE states.name LIKE %s ORDER BY cities.id ASC""", (sys.argv[4],))
     query_rows = cur.fetchall()
-    for row in query_rows:
-        if row != query_rows[len(query_rows) - 1]:
-            print(row[0], end=", ")
-        else:
-            print(row[0])
+    cities = list(row[0] for row in query_rows)
+    print(*cities, sep=", ")
     cur.close()
     conn.close()
