@@ -1,14 +1,14 @@
 #!/usr/bin/python3
-'''
-    Importing the urllib library
-'''
-import urllib.request as request
 
 '''
     Script that fetches https://alx-intranet.hbtn.io/status
 '''
 
 if __name__ == "__main__":
+    '''
+        Importing the urllib library
+    '''
+    import urllib.request as request
     url = 'https://alx-intranet.hbtn.io/status'
     with request.urlopen(url) as response:
         data = response.read()
