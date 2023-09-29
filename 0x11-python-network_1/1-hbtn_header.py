@@ -13,4 +13,4 @@ if __name__ == "__main__":
     from sys import argv
     request = urllib.request.Request(argv[1])
     with urllib.request.urlopen(argv[1]) as response:
-        print(dict(response.headers)['X-Request-Id'])
+        print(dict(response.headers).get('X-Request-Id'))
