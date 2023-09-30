@@ -14,7 +14,11 @@ if __name__ == "__main__":
     import requests
     from sys import argv
     url = 'http://0.0.0.0:5000/search_user'
-    data = {'q': argv[1]}
+    if len(argv) < 2:
+        q = ""
+    else:
+        q = argv[1]
+    data = {'q': q}
     request = requests.post(url, data)
     try:
         usr_id = request.json().get("id")
